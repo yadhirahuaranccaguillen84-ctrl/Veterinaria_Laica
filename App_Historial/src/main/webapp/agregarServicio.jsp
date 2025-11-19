@@ -1,8 +1,4 @@
-<%-- 
-    Document   : agregarMascota
-    Created on : 20 oct. 2023, 06:22:08
-    Author     : Luis Santos
---%>
+
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>

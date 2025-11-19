@@ -16,7 +16,7 @@ import jakarta.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author Luis Santos
+ * @author Anai Huarancca
  */
 @WebServlet(name = "eliminarHistorialServlet", urlPatterns = {"/eliminarHistorial"})
 public class eliminarHistorialServlet extends HttpServlet {

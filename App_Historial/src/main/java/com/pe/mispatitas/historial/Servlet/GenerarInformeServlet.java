@@ -23,7 +23,7 @@ import net.sf.jasperreports.engine.JasperReport;
 
 /**
  *
- * @author Luis Santos
+ * @author Anai Huarancca
  */
 @WebServlet(name = "GenerarInformeServlet", urlPatterns = {"/GenerarInforme"})
 public class GenerarInformeServlet extends HttpServlet {

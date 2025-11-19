@@ -20,7 +20,7 @@ import java.util.Objects;
 
 /**
  *
- * @author Luis Santos
+ * @author Anai Huarancca
  */
 @WebServlet(name = "registroContactoServlet", urlPatterns = {"/contacto"})
 public class registroContactoServlet extends HttpServlet {

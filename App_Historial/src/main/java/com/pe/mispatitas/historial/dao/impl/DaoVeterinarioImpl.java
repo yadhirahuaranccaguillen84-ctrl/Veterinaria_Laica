@@ -15,7 +15,7 @@ import util.Conexion;
 
 /**
  *
- * @author Luis Santos
+ * @author Anai Huarancca
  */
 public class DaoVeterinarioImpl implements DaoVeterinario {
 

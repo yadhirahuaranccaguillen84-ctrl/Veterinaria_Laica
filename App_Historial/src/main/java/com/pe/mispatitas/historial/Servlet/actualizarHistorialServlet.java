@@ -17,7 +17,7 @@ import jakarta.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author Luis Santos
+ * @author Anai Huarancca
  */
 @WebServlet(name = "actualizarHistorialServlet", urlPatterns = {"/actualizarHistorial"})
 public class actualizarHistorialServlet extends HttpServlet {

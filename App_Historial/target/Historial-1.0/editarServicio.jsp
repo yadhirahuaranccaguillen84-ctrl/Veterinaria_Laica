@@ -1,8 +1,4 @@
-<%-- 
-    Document   : agregarMascota
-    Created on : 20 oct. 2023, 06:22:08
-    Author     : Luis Santos
---%>
+
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>

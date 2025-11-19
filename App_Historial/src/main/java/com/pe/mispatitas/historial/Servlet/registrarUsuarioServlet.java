@@ -23,7 +23,7 @@ import java.util.regex.Pattern;
 
 /**
  *
- * @author Luis Santos
+ * @author Anai Huarancca
  */
 @WebServlet(name = "registrarUsuarioServlet", urlPatterns = {"/registrarUsuario"})
 public class registrarUsuarioServlet extends HttpServlet {

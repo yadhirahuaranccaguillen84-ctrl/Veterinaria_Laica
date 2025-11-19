@@ -13,7 +13,7 @@ import java.sql.*;
 
 /**
  *
- * @author Luis Santos
+ * @author Anai Huarancca
  */
 public class DaoMascotaImpl implements DaoMascota {
 

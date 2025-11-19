@@ -1,8 +1,4 @@
-<%-- 
-    Document   : index
-    Created on : 2 set. 2023, 10:30:10
-    Author     : luisd
---%>
+
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>

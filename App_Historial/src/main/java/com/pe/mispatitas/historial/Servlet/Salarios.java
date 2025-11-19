@@ -24,7 +24,7 @@ import java.util.Map;
 
 /**
  *
- * @author Luis Santos
+ * @author Anai Huarancca
  */
 @WebServlet(name = "Salarios", urlPatterns = {"/Salarios"})
 public class Salarios extends HttpServlet {

@@ -19,10 +19,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.util.List;
 
-/**
- *
- * @author Luis Santos
- */
+
 @WebServlet(name = "CreateUser", urlPatterns = {"/createUsers"})
 public class CreateUser extends HttpServlet {
     /**

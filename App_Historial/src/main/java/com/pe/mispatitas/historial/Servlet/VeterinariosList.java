@@ -23,7 +23,7 @@ import java.util.*;
 
 /**
  *
- * @author Luis Santos
+ * @author Anai Huarancca
  */
 @WebServlet(name = "api/veterinarios", urlPatterns = {"/api/veterinarios"})
 public class VeterinariosList extends HttpServlet {

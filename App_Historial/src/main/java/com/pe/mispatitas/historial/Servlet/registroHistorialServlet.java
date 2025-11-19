@@ -16,7 +16,7 @@ import jakarta.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author Luis Santos
+ * @author Anai Huarancca
  */
 @WebServlet(name = "registroHistorialServlet", urlPatterns = {"/registroHistorial"})
 public class registroHistorialServlet extends HttpServlet {

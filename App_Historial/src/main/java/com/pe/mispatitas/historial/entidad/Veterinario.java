@@ -6,7 +6,7 @@ package entidad;
 
 /**
  *
- * @author Luis Santos
+ * @author Anai Huarancca
  */
 public class Veterinario {
     private Integer idVeterinario;

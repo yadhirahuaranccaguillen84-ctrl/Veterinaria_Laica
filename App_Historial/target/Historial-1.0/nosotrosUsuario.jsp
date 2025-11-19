@@ -1,8 +1,3 @@
-<%-- 
-    Document   : nosotros
-    Created on : 1 set. 2023, 15:28:21
-    Author     : LAB-USR-SJL275-B0205
---%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>

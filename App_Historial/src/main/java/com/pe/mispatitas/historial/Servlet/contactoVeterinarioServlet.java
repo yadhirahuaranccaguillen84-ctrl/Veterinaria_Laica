@@ -19,7 +19,7 @@ import java.util.List;
 
 /**
  *
- * @author Luis Santos
+ * @author Anai Huarancca
  */
 @WebServlet(urlPatterns = {"/contactoVeterinario"})
 public class contactoVeterinarioServlet extends HttpServlet {

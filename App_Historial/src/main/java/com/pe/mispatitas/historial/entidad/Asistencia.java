@@ -6,7 +6,7 @@ package entidad;
 
 /**
  *
- * @author Luis Santos
+ * @author Anai Huarancca
  */
 public class Asistencia {
     private Integer idAsistencia;

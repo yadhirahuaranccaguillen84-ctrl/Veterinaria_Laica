@@ -18,10 +18,6 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.Part;
 import java.io.InputStream;
 
-/**
- *
- * @author Luis Santos
- */
 @WebServlet(name = "ActualizarServicioServlet", urlPatterns = {"/ActualizarServicio"})
 @MultipartConfig
 public class ActualizarServicioServlet extends HttpServlet {

@@ -21,7 +21,7 @@ import java.util.Base64;
 
 /**
  *
- * @author Luis Santos
+ * @author Anai Huarancca
  */
 @WebServlet(name = "listarMascotaServlet", urlPatterns = {"/listarMascota"})
 public class listarMascotaServlet extends HttpServlet {

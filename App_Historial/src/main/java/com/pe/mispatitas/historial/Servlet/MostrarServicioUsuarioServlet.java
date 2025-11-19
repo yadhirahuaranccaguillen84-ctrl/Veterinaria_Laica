@@ -21,7 +21,7 @@ import java.util.List;
 
 /**
  *
- * @author Luis Santos
+ * @author Anai Huarancca
  */
 @WebServlet(urlPatterns = {"/MostrarServicioUsuario"})
 public class MostrarServicioUsuarioServlet extends HttpServlet {

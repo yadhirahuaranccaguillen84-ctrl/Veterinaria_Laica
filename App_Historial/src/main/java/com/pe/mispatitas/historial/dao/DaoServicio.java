@@ -9,7 +9,7 @@ import entidad.Servicio;
 
 /**
  *
- * @author Luis Santos
+ * @author Anai Huarancca
  */
 public interface DaoServicio {
     List<Servicio> servicioSel();

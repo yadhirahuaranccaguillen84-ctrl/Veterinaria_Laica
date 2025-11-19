@@ -24,7 +24,7 @@ import java.nio.file.StandardCopyOption;
 
 /**
  *
- * @author Luis Santos
+ * @author Anai Huarancca
  */
 @WebServlet(name = "registroMascotaServlet", urlPatterns = {"/registroMascota"})
 @MultipartConfig

@@ -12,7 +12,7 @@ import java.util.List;
 
 /**
  *
- * @author Luis Santos
+ * @author Anai Huarancca
  */
 public class TextCrudUsuario {
 

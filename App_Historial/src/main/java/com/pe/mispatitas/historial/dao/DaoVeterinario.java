@@ -9,7 +9,7 @@ import java.util.List;
 
 /**
  *
- * @author Luis Santos
+ * @author Anai Huarancca
  */
 public interface DaoVeterinario {
      List<Veterinario> veterinarioSel();

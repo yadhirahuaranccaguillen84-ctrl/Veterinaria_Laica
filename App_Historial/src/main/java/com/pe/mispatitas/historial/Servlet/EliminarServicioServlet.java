@@ -14,10 +14,6 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-/**
- *
- * @author Luis Santos
- */
 @WebServlet(name = "EliminarServicioServlet", urlPatterns = {"/EliminarServicio"})
 public class EliminarServicioServlet extends HttpServlet {
 

@@ -8,7 +8,7 @@ import java.io.InputStream;
 
 /**
  *
- * @author Luis Santos
+ * @author Anai Huarancca
  */
 public class Servicio {
     

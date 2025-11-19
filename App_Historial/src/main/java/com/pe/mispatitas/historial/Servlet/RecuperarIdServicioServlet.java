@@ -18,7 +18,7 @@ import java.io.InputStream;
 
 /**
  *
- * @author Luis Santos
+ * @author Anai Huarancca
  */
 @WebServlet(name = "RecuperarIdServicioServlet", urlPatterns = {"/RecuperarIdServicio"})
 public class RecuperarIdServicioServlet extends HttpServlet {

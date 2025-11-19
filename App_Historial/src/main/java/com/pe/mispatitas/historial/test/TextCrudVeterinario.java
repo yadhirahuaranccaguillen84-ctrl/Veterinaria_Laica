@@ -11,7 +11,7 @@ import java.util.List;
 
 /**
  *
- * @author Luis Santos
+ * @author Anai Huarancca
  */
 public class TextCrudVeterinario {
 
@@ -22,12 +22,12 @@ public class TextCrudVeterinario {
 
         DaoVeterinario dao = new DaoVeterinarioImpl();
  // Probar SELECT
-        // try {
-        //     List<Veterinario> lista = dao.veterinarioSel();
-        //     lista.forEach(t->System.out.println(t.getCorreo()+"--"+t.getContra()));
-        // } catch (Exception e) {
-        //     dao.getMensaje();
-        // }
+         try {
+             List<Veterinario> lista = dao.veterinarioSel();
+             lista.forEach(t->System.out.println(t.getCorreo()+"--"+t.getContra()));
+         } catch (Exception e) {
+             dao.getMensaje();
+         }
 
         // Probar SELECT
 //        try {
@@ -39,6 +39,8 @@ public class TextCrudVeterinario {
 
    
         // Probar INSERT
+        
+        /*
        try {
 
            Veterinario cat = new Veterinario(null, "frecia", "frecia@gmail.com", "123456","1200","8:00","18:00");
@@ -47,6 +49,7 @@ public class TextCrudVeterinario {
            dao.getMensaje();
        }
 
+*/
 //       // Probar UPDATE
 //        try {
 //            Veterinario cat = new Veterinario(2, "Antonella jr", "antonella@gmail.com", "123456");

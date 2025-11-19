@@ -12,7 +12,7 @@ import java.util.List;
 
 /**
  *
- * @author Luis Santos
+ * @author Anai Huarancca
  */
 public class TextCrudAdministrador {
 
@@ -23,12 +23,12 @@ public class TextCrudAdministrador {
 
         DaoAdministrador dao = new DaoAdministradorImpl();
 //  Probar SELECT
-    //    try {
-    //        List<Administrador> lista = dao.administradorSel();
-    //        lista.forEach(t->System.out.println(t.getIdAdministrador()+"--"+t.getContra()));
-    //    } catch (Exception e) {
-    //        dao.getMensaje();
-    //    }
+      try {
+            List<Administrador> lista = dao.administradorSel();
+            lista.forEach(t->System.out.println(t.getIdAdministrador()+"--"+t.getContra()));
+        } catch (Exception e) {
+           dao.getMensaje();
+        }
 
         // Probar SELECT
         // try {
@@ -40,12 +40,16 @@ public class TextCrudAdministrador {
 
    
         // Probar INSERT
+        
+        /*
        try {
            Administrador cat = new Administrador(null, "luis", "santos","luisadmin@gmail.com", "123456");
            System.out.println(dao.administradorIns(cat));
        } catch (Exception e) {
            dao.getMensaje();
        }
+
+*/
 
     // Probar UPDATE
     //    try {

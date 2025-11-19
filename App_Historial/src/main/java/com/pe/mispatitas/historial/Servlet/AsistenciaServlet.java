@@ -17,10 +17,6 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import entidad.Asistencia;
 
-/**
- *
- * @author Luis Santos
- */
 @WebServlet(name = "AsistenciaServlet", urlPatterns = {"/AsistenciaServlet"})
 public class AsistenciaServlet extends HttpServlet {
 

@@ -23,7 +23,7 @@ import jakarta.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author Luis Santos
+ * @author Anai Huarancca
  */
 @WebServlet(name = "MensajeServlet", urlPatterns = {"/MensajeServlet"})
 public class MensajeServlet extends HttpServlet {

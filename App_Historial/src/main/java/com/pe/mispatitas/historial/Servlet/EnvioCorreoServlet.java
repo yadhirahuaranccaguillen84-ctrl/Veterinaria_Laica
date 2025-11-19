@@ -22,10 +22,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.io.InputStream;
 import java.util.Properties;
 
-/**
- *
- * @author Luis Santos
- */
+
 @WebServlet(name = "EnvioCorreoServlet", urlPatterns = {"/EnvioCorreo"})
 public class EnvioCorreoServlet extends HttpServlet {
 

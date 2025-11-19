@@ -1,8 +1,4 @@
-<%-- 
-    Document   : servicios.jsp
-    Created on : 14 set. 2023, 09:25:32
-    Author     : luisd
---%>
+
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>

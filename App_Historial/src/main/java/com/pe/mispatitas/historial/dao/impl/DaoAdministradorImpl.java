@@ -16,7 +16,7 @@ import java.sql.Statement;
 
 /**
  *
- * @author Luis Santos
+ * @author Anai Huarancca
  */
 public class DaoAdministradorImpl implements DaoAdministrador{
 

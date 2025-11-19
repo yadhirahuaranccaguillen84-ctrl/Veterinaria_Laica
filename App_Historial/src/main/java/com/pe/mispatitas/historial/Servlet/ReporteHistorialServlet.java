@@ -21,7 +21,7 @@ import java.util.List;
 
 /**
  *
- * @author Luis Santos
+ * @author Anai Huarancca
  */
 @WebServlet(name = "ReporteHistorialServlet", urlPatterns = {"/ReporteHistorial"})
 public class ReporteHistorialServlet extends HttpServlet {

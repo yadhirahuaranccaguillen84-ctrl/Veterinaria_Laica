@@ -11,7 +11,7 @@ import java.util.List;
 
 /**
  *
- * @author Luis Santos
+ * @author Anai Huarancca
  */
 public class TestAsistencia {
 
@@ -23,20 +23,23 @@ public class TestAsistencia {
         
         DaoAsistencia dao=new DaoAsistenciaImpl();
         //Probar Select
-        // try {
-        //     List<Asistencia> lista = dao.asistenciaSel();
-        //     lista.forEach(t->System.out.println(t.getIdAsistencia()));
-        // } catch (Exception e) {
-        //     dao.getMensaje();
-        // }
+        try {
+             List<Asistencia> lista = dao.asistenciaSel();
+             lista.forEach(t->System.out.println(t.getFecha()));
+         } catch (Exception e) {
+             dao.getMensaje();
+        }
 
         //Probar Insert
+        
+        /*
         try {
             Asistencia asistencia = new Asistencia(null, 6, "2025-06-23", "9:00", "15:00", "TARDANZA");
             System.out.println(dao.asistenciaIns(asistencia));
         } catch (Exception e) {
             dao.getMensaje();
         }
+*/
         
         //Probar Update
         // try {

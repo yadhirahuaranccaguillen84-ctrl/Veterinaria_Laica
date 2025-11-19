@@ -17,7 +17,7 @@ import jakarta.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author Luis Santos
+ * @author Anai Huarancca
  */
 @WebServlet(name = "recuperarIDHistorialServlet", urlPatterns = {"/recuperarIDHistorial"})
 public class recuperarIDHistorialServlet extends HttpServlet {

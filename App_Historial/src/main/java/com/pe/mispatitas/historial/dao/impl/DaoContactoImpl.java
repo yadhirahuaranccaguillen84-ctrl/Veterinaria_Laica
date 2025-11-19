@@ -15,7 +15,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author Luis Santos
+ * @author Anai Huarancca
  */
 public class DaoContactoImpl implements DaoContacto {
 
