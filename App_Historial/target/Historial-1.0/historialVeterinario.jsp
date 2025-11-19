@@ -51,60 +51,51 @@
                     <a href="" id="btnAgregar">Agregar Historial</a>
                 </div>
 
-            <c:if test="${empty listaHistorial.tratamiento}">
-                <h1>Aun no tiene Historial</h1>
+            <c:if test="${empty listaHistorial}">
+    <h1>Aún no tiene Historial</h1>
+</c:if>
 
-            </c:if>
-            <c:if test="${not empty listaHistorial.tratamiento}">
+<c:if test="${not empty listaHistorial}">
+    <div class="contenidoHistorial">
+        <table border="1" class="tablaHistorial">
+            <tr>
+                <th colspan="2">Opciones</th>
+                <th>Código Veterinario</th>
+                <th>Código Mascota</th>
+                <th>Fecha Historial</th>
+                <th>Descripción</th>
+                <th>Tratamiento</th>
+            </tr>
 
-                <div class="contenidoHistorial">
-                    <table border=1 class="tablaHistorial">
-
-                        <tr>
-
-                            <th colspan="2">Opciones</th>
-
-
-                            <th>Codigo Veterinario</th>
-                            <th>Codigo Mascota</th>
-                            <th>Fecha Historial</th>
-                            <th>Descripción</th>
-                            <th>Tratamiento</th>
-
-                        </tr>
-
-
-                        <tr>
-
-                        <form action="recuperarIDHistorial" method="post">
-                            <td>
-                                <input name="idMascota" type="hidden" value="${listaHistorial.idMascota}" />
-                                <button name="actualizar" value=${listaHistorial.idHistorial} > 
-
-                                    <a href="/Historial/actualizarHistorial">
-                                        <i class='bx bxs-pencil'></i>
-                                    </a>
-                                </button>
-
-                            </td>
-                        </form>
-                        <form action="eliminarHistorial" method="post">
-                            <td><button style="cursor: pointer" name="eliminar" value=${listaHistorial.idHistorial} ><i class='bx bxs-trash' ></i></button></td>
-                        </form>
-                        <td>${listaHistorial.idVeterinario}</td>
-                        <td>${listaHistorial.idMascota}</td>
-                        <td>${listaHistorial.fechaHistorial}</td>
-                        <td>${listaHistorial.descripcion}</td>
-                        <td>${listaHistorial.tratamiento}</td>
-
-                        </tr>
-
-
-
-                    </table>
-
-                </div>   
-            </c:if>
+            <c:forEach var="h" items="${listaHistorial}">
+                <tr>
+                    <form action="recuperarIDHistorial" method="post">
+                        <td>
+                            <input name="idMascota" type="hidden" value="${h.idMascota}" />
+                            <button name="actualizar" value="${h.idHistorial}">
+                                <a href="/Historial/actualizarHistorial">
+                                    <i class='bx bxs-pencil'></i>
+                                </a>
+                            </button>
+                        </td>
+                    </form>
+                    <form action="eliminarHistorial" method="post">
+                        <td>
+                            <button style="cursor: pointer" name="eliminar" value="${h.idHistorial}">
+                                <i class='bx bxs-trash'></i>
+                            </button>
+                        </td>
+                    </form>
+                    <td>${h.idVeterinario}</td>
+                    <td>${h.idMascota}</td>
+                    <td>${h.fechaHistorial}</td>
+                    <td>${h.descripcion}</td>
+                    <td>${h.tratamiento}</td>
+                </tr>
+            </c:forEach>
+        </table>
+    </div>
+</c:if>
 
 
         </div>

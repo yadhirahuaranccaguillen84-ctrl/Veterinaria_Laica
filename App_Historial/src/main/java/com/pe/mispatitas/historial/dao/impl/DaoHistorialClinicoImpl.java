@@ -177,36 +177,30 @@ public class DaoHistorialClinicoImpl implements DaoHistorialClinico {
     }
 
     @Override
-    public HistorialClinico historialMascotaGet(Integer id) {
-
-        HistorialClinico historialClinico = null;
-        StringBuilder sql = new StringBuilder();
-        sql.append("SELECT ")
-                .append("idHistorial,")
-                .append("idVeterinario,")
-                .append("idMascota,")
-                .append("fechaHistorial,")
-                .append("descripcion,")
-                .append("tratamiento ")
-                .append("FROM historial ")
-                .append("WHERE idMascota = ?");
-        try (Connection cn = conexion.getConexion()) {
-            PreparedStatement ps = cn.prepareStatement(sql.toString());
-            ps.setInt(1, id);
-            ResultSet rs = ps.executeQuery();
-            historialClinico = new HistorialClinico();
-            if (rs.next()) {
-                historialClinico.setIdHistorial(rs.getInt(1));
-                historialClinico.setIdVeterinario(rs.getInt(2));
-                historialClinico.setIdMascota(rs.getInt(3));
-                historialClinico.setFechaHistorial(rs.getString(4));
-                historialClinico.setDescripcion(rs.getString(5));
-                historialClinico.setTratamiento(rs.getString(6));
-            }
-        } catch (Exception e) {
-            mensaje = e.getMessage();
+   public List<HistorialClinico> historialMascotaGet(Integer id) {
+    List<HistorialClinico> listaHistorial = new ArrayList<>();
+    StringBuilder sql = new StringBuilder();
+    sql.append("SELECT ")
+       .append("idHistorial, idVeterinario, idMascota, fechaHistorial, descripcion, tratamiento ")
+       .append("FROM historial ")
+       .append("WHERE idMascota = ?");
+    try (Connection cn = conexion.getConexion()) {
+        PreparedStatement ps = cn.prepareStatement(sql.toString());
+        ps.setInt(1, id);
+        ResultSet rs = ps.executeQuery();
+        while (rs.next()) {
+            HistorialClinico historial = new HistorialClinico();
+            historial.setIdHistorial(rs.getInt(1));
+            historial.setIdVeterinario(rs.getInt(2));
+            historial.setIdMascota(rs.getInt(3));
+            historial.setFechaHistorial(rs.getString(4));
+            historial.setDescripcion(rs.getString(5));
+            historial.setTratamiento(rs.getString(6));
+            listaHistorial.add(historial);
         }
-        return historialClinico;
-
+    } catch (Exception e) {
+        mensaje = e.getMessage();
     }
+    return listaHistorial;
+}
 }

@@ -33,17 +33,26 @@ public class historialServlet extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        Integer idMascota = Integer.valueOf(request.getParameter("idMascota"));
-        DaoHistorialClinico dao = new DaoHistorialClinicoImpl();
-            HistorialClinico listaHistorial=dao.historialMascotaGet(idMascota);
-        
-//        Integer numero = Integer.valueOf(request.getParameter("num"));
-        request.setAttribute("listaHistorial", listaHistorial);
-        request.setAttribute("idMascota", idMascota);
-        request.getRequestDispatcher("historialVeterinario.jsp").forward(request, response);
+        throws ServletException, IOException {
+    response.setContentType("text/html;charset=UTF-8");
+
+    Integer idMascota = Integer.valueOf(request.getParameter("idMascota"));
+    DaoHistorialClinico dao = new DaoHistorialClinicoImpl();
+
+    // Obtener lista de historiales clínicos
+    List<HistorialClinico> listaHistorial = dao.historialMascotaGet(idMascota);
+
+    // Imprimir en consola cada historial
+    System.out.println("Historiales clínicos obtenidos para la mascota " + idMascota + ":");
+    for (HistorialClinico h : listaHistorial) {
+        System.out.println(h); // Asegúrate de tener toString() definido en HistorialClinico
     }
+
+    // Enviar datos al JSP
+    request.setAttribute("listaHistorial", listaHistorial);
+    request.setAttribute("idMascota", idMascota);
+    request.getRequestDispatcher("historialVeterinario.jsp").forward(request, response);
+}
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**

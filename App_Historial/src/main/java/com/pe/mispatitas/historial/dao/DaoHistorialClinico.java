@@ -15,8 +15,7 @@ public interface DaoHistorialClinico {
      List<HistorialClinico> historialSel();
 
     HistorialClinico historialGet(Integer id);
-    HistorialClinico historialMascotaGet(Integer id);
-
+    List<HistorialClinico> historialMascotaGet(Integer id);
     String historialIns(HistorialClinico historial);
 
     String historialUpd(HistorialClinico historial);

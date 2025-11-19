@@ -39,24 +39,35 @@ public class mascotaVeterinarioServlet extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        DaoMascota dao = new DaoMascotaImpl();
-        DaoHistorialClinico daoHistorial = new DaoHistorialClinicoImpl();
-        DaoUsuario daoUsuario = new DaoUsuarioImpl();
-        List<Mascota> listaMascotaVeterinario = dao.mascotaSel();
+        throws ServletException, IOException {
+    response.setContentType("text/html;charset=UTF-8");
 
-        for (Mascota mascota : listaMascotaVeterinario) {
-            Usuario cat = daoUsuario.usuarioGet(mascota.getIdUsuario());
-            HistorialClinico histo=daoHistorial.historialMascotaGet(mascota.getIdMascota());
-            mascota.setNombreUsuario(cat.getNombreUsuario());
-            mascota.setTratamiento(histo.getTratamiento());
+    DaoMascota dao = new DaoMascotaImpl();
+    DaoHistorialClinico daoHistorial = new DaoHistorialClinicoImpl();
+    DaoUsuario daoUsuario = new DaoUsuarioImpl();
+
+    List<Mascota> listaMascotaVeterinario = dao.mascotaSel();
+
+    for (Mascota mascota : listaMascotaVeterinario) {
+        // Obtener el usuario dueño de la mascota
+        Usuario cat = daoUsuario.usuarioGet(mascota.getIdUsuario());
+        mascota.setNombreUsuario(cat.getNombreUsuario());
+
+        // Obtener lista de historiales clínicos de la mascota
+        List<HistorialClinico> historiales = daoHistorial.historialMascotaGet(mascota.getIdMascota());
+
+        if (!historiales.isEmpty()) {
+            // Tomar el historial más reciente (primero si está ordenado DESC)
+            HistorialClinico ultimoHistorial = historiales.get(0);
+            mascota.setTratamiento(ultimoHistorial.getTratamiento());
+        } else {
+            mascota.setTratamiento("Sin tratamiento");
         }
-        
-        request.setAttribute("listaMascotaVeterinario", listaMascotaVeterinario);
-        request.getRequestDispatcher("mascotasVeterinario.jsp").forward(request, response);
-
     }
+
+    request.setAttribute("listaMascotaVeterinario", listaMascotaVeterinario);
+    request.getRequestDispatcher("mascotasVeterinario.jsp").forward(request, response);
+}
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**

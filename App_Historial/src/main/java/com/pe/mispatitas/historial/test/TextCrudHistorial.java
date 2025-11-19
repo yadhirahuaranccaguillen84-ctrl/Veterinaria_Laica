@@ -30,11 +30,18 @@ public class TextCrudHistorial {
 //        }
         
         try {
-            HistorialClinico cat=dao.historialMascotaGet(36);
-             System.out.println(cat.getTratamiento());
+    List<HistorialClinico> historiales = dao.historialMascotaGet(36);
 
-        } catch (Exception e) {
-        }
+    if (!historiales.isEmpty()) {
+        HistorialClinico cat = historiales.get(0); 
+        System.out.println("Tratamiento: " + cat.getTratamiento());
+    } else {
+        System.out.println("No hay historial clínico para la mascota con ID 36.");
+    }
+
+} catch (Exception e) {
+    e.printStackTrace(); // Imprime el error para depuración
+}
 
         // Probar SELECT
 //        try {

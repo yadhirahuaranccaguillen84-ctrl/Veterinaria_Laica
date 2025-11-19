@@ -36,26 +36,32 @@ public class listarHistorialUsuarioServlet extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
+        throws ServletException, IOException {
+    response.setContentType("text/html;charset=UTF-8");
 
-        DaoMascota dao = new DaoMascotaImpl();
-                DaoHistorialClinico daoHistorial = new DaoHistorialClinicoImpl();
+    DaoMascota dao = new DaoMascotaImpl();
+    DaoHistorialClinico daoHistorial = new DaoHistorialClinicoImpl();
 
-        List<Mascota> listaMascota = dao.mascotaSel();
-        Integer idUsuario = Integer.valueOf(request.getParameter("idUsuario"));
-        
-        for (Mascota mascota : listaMascota) {
-            HistorialClinico histo=daoHistorial.historialMascotaGet(mascota.getIdMascota());
-            mascota.setFechaHistorial(histo.getFechaHistorial());
-            mascota.setTratamiento(histo.getTratamiento());
+    List<Mascota> listaMascota = dao.mascotaSel();
+    Integer idUsuario = Integer.valueOf(request.getParameter("idUsuario"));
+
+    for (Mascota mascota : listaMascota) {
+        List<HistorialClinico> historiales = daoHistorial.historialMascotaGet(mascota.getIdMascota());
+
+        if (!historiales.isEmpty()) {
+            HistorialClinico ultimoHistorial = historiales.get(0);
+            mascota.setFechaHistorial(ultimoHistorial.getFechaHistorial());
+            mascota.setTratamiento(ultimoHistorial.getTratamiento());
+        } else {
+            mascota.setFechaHistorial("Sin historial");
+            mascota.setTratamiento("Sin tratamiento");
         }
-        
-        request.setAttribute("idUsuario", idUsuario);
-        request.setAttribute("listaMascota", listaMascota);
-        request.getRequestDispatcher("historialClinicoUsuario.jsp").forward(request, response);
-
     }
+
+    request.setAttribute("idUsuario", idUsuario);
+    request.setAttribute("listaMascota", listaMascota);
+    request.getRequestDispatcher("historialClinicoUsuario.jsp").forward(request, response);
+}
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
