@@ -1,12 +1,14 @@
-// Import the functions you need from the SDKs you need
+/**
+ * Configuración e inicialización de Firebase para el sistema de veterinaria.
+ * Este archivo configura Firebase Authentication para permitir login con Google y Facebook.
+ */
+
+// Importar las funciones necesarias de los SDKs de Firebase
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.3.1/firebase-app.js";
 import { getAuth } from "https://www.gstatic.com/firebasejs/10.3.1/firebase-auth.js";
 
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
-
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+// Configuración de Firebase para la aplicación web
+// Para Firebase JS SDK v7.20.0 y posteriores, measurementId es opcional
 const firebaseConfig = {
   apiKey: "AIzaSyBe3rIsBkLIZz9jTpbP8p_6Sz0gxsdwQ-E",
   authDomain: "veterinaria-4ffa4.firebaseapp.com",
@@ -17,6 +19,6 @@ const firebaseConfig = {
   measurementId: "G-MH7QJ6GE92",
 };
 
-// Initialize Firebase
+// Inicializar Firebase y exportar las instancias para uso en otros módulos
 export const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);

@@ -23,7 +23,9 @@ import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 
 /**
- *
+ * Servlet que gestiona el registro de nuevas mascotas en el sistema.
+ * Permite a los usuarios registrar sus mascotas con información personal y una foto.
+ * 
  * @author Anai Huarancca
  */
 @WebServlet(name = "registroMascotaServlet", urlPatterns = {"/registroMascota"})
@@ -32,11 +34,21 @@ public class registroMascotaServlet extends HttpServlet {
 
     private static final long serialVersionUID = 1L;
 
+    /**
+     * Procesa las solicitudes de registro de mascotas (GET y POST).
+     * Valida los campos obligatorios y guarda la mascota en la base de datos.
+     * 
+     * @param request Objeto HttpServletRequest con los datos del formulario
+     * @param response Objeto HttpServletResponse para enviar la respuesta
+     * @throws ServletException Si ocurre un error en el servlet
+     * @throws IOException Si ocurre un error de entrada/salida
+     */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         DaoMascota dao = new DaoMascotaImpl();
 
+        // Obtener parámetros del formulario
         String nombreMascota = request.getParameter("nombreMascota");
         String razaMascota = request.getParameter("razaMascota");
         String generoMascota = request.getParameter("generoMascota");
@@ -46,19 +58,23 @@ public class registroMascotaServlet extends HttpServlet {
 
         int idUsuario = Integer.valueOf(request.getParameter("idUsuario"));
         String mensajeAlerta;
+        // Obtener la imagen subida
         Part part = request.getPart("imagenMascota");
         InputStream inputStream = part.getInputStream();
+        
+        // Validar que todos los campos obligatorios estén completos
         if ("".equals(nombreMascota) || "".equals(razaMascota) || "".equals(generoMascota) || "".equals(fechaMascota) || "".equals(descripcionMascota) || "".equals(especieMascota)) {
             mensajeAlerta = "todos los campos son obligatorios";
             request.setAttribute("mensajeAlerta", mensajeAlerta);
             request.getRequestDispatcher("registrarMascota.jsp").forward(request, response);
         } else {
+            // Crear objeto Mascota y guardarlo en la base de datos
             Mascota cat = new Mascota(null, idUsuario, nombreMascota, fechaMascota, especieMascota, razaMascota, descripcionMascota, generoMascota, inputStream);
             dao.mascotaIns(cat);
+            // Redirigir a la página principal del usuario
             response.sendRedirect(request.getContextPath() + "/indexUsuario.jsp");
         }
 
-// Mascota(null, 1, "dori","2023-10-11", "payaso", "holamundo", "f", "hola")
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
