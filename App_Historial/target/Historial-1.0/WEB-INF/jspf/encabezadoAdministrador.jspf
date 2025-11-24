@@ -1,5 +1,6 @@
-<%-- any content can be specified here e.g.: --%>
+<!-- Contenedor principal del encabezado -->
 <%@ page pageEncoding="UTF-8" %>
+<!-- Contenedor principal del encabezado -->
 <div class="contenedor encabezadoContenedor" style="width: 100vw">
     <div class="barra" style="width: 100%">
         <a class="logo" href="/Integrador/indexVeterinario.jsp" >
@@ -13,15 +14,17 @@
             </svg>
             <h1 class="logo__nombre no-margin centrar-texto"><span class="logo__bold">Laica</span></h1>
         </a>
+        <!-- Barra de navegación principal -->
         <nav class="navegacion">
             <a href="/Historial/indexAdministrador.jsp" class="navegacion__enlace">Inicio</a>
             <a href="/Historial/createUsers.jsp" class="navegacion__enlace">Create Users</a>
             <a href="/Historial/historialAdministrador" class="navegacion__enlace">Historiales</a>
             <a href="/Historial/asistencia.jsp" class="navegacion__enlace">Asistencia</a>
-            <a href="/Historial/salarios.jsp" class="navegacion__enlace">Salarios</a>
+            <!-- <a href="/Historial/salarios.jsp" class="navegacion__enlace">Salarios</a>-->
             <a href="/Historial/index.jsp" class="navegacion__enlace" onclick="cerrarSesion()">Cerrar Sesión</a>
 
         </nav>
+        <!-- Ícono de menú hamburguesa (para móviles) -->
         <div class="hamburguesa">
             <i class="bx bx-menu"></i>
         </div>
@@ -29,16 +32,18 @@
     </div>
 
 </div>
+<!-- Barra de navegación secundaria (encabezado) -->
 <nav class="navegacionEncabezado">
     <a href="/Historial/indexAdministrador.jsp" class="navegacion__enlace">Inicio</a>
     <a href="/Historial/createUsers.jsp" class="navegacion__enlace">Create Users</a>
     <a href="/Historial/asistencia.jsp" class="navegacion__enlace">Asistencia</a>
-    <a href="/Historial/salarios.jsp" class="navegacion__enlace">Salarios</a>
+     <!-- <a href="/Historial/salarios.jsp" class="navegacion__enlace">Salarios</a>-->    
     <a href="/Historial/index.jsp" class="navegacion__enlace" onclick="cerrarSesion()">Cerrar Sesión</a>
 
 
 </nav>
 
+<!-- Script para manejar el cierre de sesión -->
 <script>
     function cerrarSesion() {
         localStorage.removeItem('idAdministrador');

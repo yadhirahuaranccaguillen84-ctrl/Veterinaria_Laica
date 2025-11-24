@@ -35,6 +35,7 @@ public class historialServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
         throws ServletException, IOException {
     response.setContentType("text/html;charset=UTF-8");
+System.out.println("Parametro idMascota recibido: " + request.getParameter("idMascota"));
 
     Integer idMascota = Integer.valueOf(request.getParameter("idMascota"));
     DaoHistorialClinico dao = new DaoHistorialClinicoImpl();

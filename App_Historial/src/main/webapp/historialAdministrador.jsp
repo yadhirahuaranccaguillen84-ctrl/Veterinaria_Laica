@@ -13,7 +13,7 @@
         
     </head>
     <body>
-        <%@include file="WEB-INF/jspf/encabezadoVeterinario.jspf" %>
+        <%@include file="WEB-INF/jspf/encabezadoAdministrador.jspf" %>
         <div class="madreMascotaUsuario">
              <div style="max-width: 400px; margin: 0 auto 20px; text-align: center;">
 

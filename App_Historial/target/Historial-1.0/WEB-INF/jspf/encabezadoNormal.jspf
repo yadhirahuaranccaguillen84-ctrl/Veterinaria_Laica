@@ -1,4 +1,4 @@
-<%-- any content can be specified here e.g.: --%>
+<!-- Contenedor principal del encabezado -->
 <%@ page pageEncoding="UTF-8" %>
 <div class="contenedor encabezadoContenedor" style="width: 100vw">
     <div class="barra" style="width: 100%">
@@ -13,12 +13,16 @@
             </svg>
             <h1 class="logo__nombre no-margin centrar-texto"><span class="logo__bold">Laica</span></h1>
         </a>
+        <!-- Barra de navegación principal -->
+
         <nav class="navegacion">
             <a href="/Historial/" class="navegacion__enlace">Inicio</a>
             <a href="/Historial/nosotrosNormal.jsp" class="navegacion__enlace">Nosotros</a>
             <a href="/Historial/MostrarServicioNormal" class="navegacion__enlace">Servicios</a>
             <a href="/Historial/index2.jsp" class="navegacion__enlace">Iniciar Sesion</a>
         </nav>
+        <!-- Ícono de menú hamburguesa (para móviles) -->
+
         <div class="hamburguesa">
             <i class="bx bx-menu"></i>
         </div>
@@ -26,6 +30,8 @@
     </div>
     
 </div>
+<!-- Barra de navegación secundaria (encabezado) -->
+
 <nav class="navegacionEncabezado">
             <a href="/Historial/" class="navegacion__enlaceEncabezado">Inicio</a>
             <a href="/Historial/nosotrosNormal.jsp" class="navegacion__enlaceEncabezado">Nosotros</a>

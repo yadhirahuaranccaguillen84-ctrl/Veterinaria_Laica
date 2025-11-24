@@ -20,7 +20,7 @@ import java.util.List;
  *
  * @author Anai Huarancca
  */
-@WebServlet(name = "historialServlet", urlPatterns = {"/historialAdministrador"})
+@WebServlet(name = "historialAdministradorServlet", urlPatterns = {"/historialAdministrador"})
 public class historialAdministradorServlet extends HttpServlet {
 
     /**
