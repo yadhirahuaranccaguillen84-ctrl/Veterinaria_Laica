@@ -15,23 +15,38 @@ import util.Conexion;
 import java.sql.Statement;
 
 /**
- *
+ * Implementación de la interfaz DaoAdministrador.
+ * Proporciona la lógica de acceso a datos para la entidad Administrador en la base de datos MySQL.
+ * Utiliza encriptación AES para las contraseñas.
+ * 
  * @author Anai Huarancca
  */
 public class DaoAdministradorImpl implements DaoAdministrador{
 
+    // Objeto para gestionar la conexión a la base de datos
     private final Conexion conexion;
+    // Mensaje de error para las operaciones
     private String mensaje;
 
+    /**
+     * Constructor que inicializa la conexión a la base de datos.
+     */
     public DaoAdministradorImpl() {
         conexion = new Conexion();
     }
 
+    /**
+     * Selecciona y retorna todos los administradores de la base de datos.
+     * Desencripta las contraseñas usando AES_DECRYPT de MySQL.
+     * 
+     * @return Lista de todos los administradores
+     */
     @Override
     public List<Administrador> administradorSel() {
 
         List<Administrador> lista = null;
         StringBuilder sql = new StringBuilder();
+        // Consulta SQL que desencripta la contraseña usando AES_DECRYPT
         sql.append("SELECT ")
                 .append("idAdministrador,")
                 .append("nombreAdministrador,")
@@ -44,6 +59,7 @@ public class DaoAdministradorImpl implements DaoAdministrador{
             PreparedStatement ps = cn.prepareStatement(sql.toString());
             ResultSet rs = ps.executeQuery();
             lista = new ArrayList<>();
+            // Recorrer los resultados y crear objetos Administrador
             while (rs.next()) {
                 Administrador administrador = new Administrador();
                 administrador.setIdAdministrador(rs.getInt(1));
@@ -60,6 +76,13 @@ public class DaoAdministradorImpl implements DaoAdministrador{
 
     }
 
+    /**
+     * Calcula o desencripta una contraseña usando funciones de MySQL.
+     * Nota: Este método parece tener un propósito específico de desencriptación.
+     * 
+     * @param contrasena Contraseña a procesar
+     * @return La contraseña desencriptada o null si hay error
+     */
     @Override
     public String calcularMD5MySQL(String contrasena) {
         String sql="SELECT CAST(AES_DECRYPT(?,'AES') AS CHAR) AS contra_Desencriptada FROM administrador";
@@ -77,11 +100,19 @@ public class DaoAdministradorImpl implements DaoAdministrador{
         return null;
     }
 
+    /**
+     * Obtiene un administrador específico por su ID.
+     * Desencripta la contraseña usando AES_DECRYPT de MySQL.
+     * 
+     * @param id Identificador único del administrador
+     * @return El administrador encontrado o null si no existe
+     */
     @Override
     public Administrador administradorGet(Integer id) {
 
         Administrador administrador = null;
         StringBuilder sql = new StringBuilder();
+        // Consulta SQL que desencripta la contraseña usando AES_DECRYPT
         sql.append("SELECT ")
                 .append("idAdministrador,")
                 .append("nombreAdministrador,")
@@ -109,17 +140,26 @@ public class DaoAdministradorImpl implements DaoAdministrador{
 
     }
 
+    /**
+     * Inserta un nuevo administrador en la base de datos.
+     * Encripta la contraseña usando AES_ENCRYPT de MySQL.
+     * Retorna el ID generado automáticamente.
+     * 
+     * @param administrador Objeto Administrador con los datos a insertar
+     * @return El ID generado del nuevo administrador, o -1 si falla la inserción
+     */
     @Override
     public int administradorIns(Administrador administrador) {
         int idGenerado = -1; // Valor por defecto si la inserción falla
 
         StringBuilder sql = new StringBuilder();
+        // Consulta SQL que encripta la contraseña usando AES_ENCRYPT
         sql.append("INSERT INTO administrador(")
                 .append("nombreAdministrador,")
                 .append("apellidoAdministrador,")
                 .append("correo,")
                 .append("contraseña ")
-                .append(") VALUES (?,?,?,AES_ENCRYPT(?,'AES'))");// Utilizar la función MD5 de MySQL
+                .append(") VALUES (?,?,?,AES_ENCRYPT(?,'AES'))");
 
         try (Connection cn = conexion.getConexion()) {
             // Establecer el flag de retorno de claves generadas automáticamente
@@ -152,6 +192,12 @@ public class DaoAdministradorImpl implements DaoAdministrador{
 
     }
 
+    /**
+     * Actualiza los datos de un administrador existente en la base de datos.
+     * 
+     * @param administrador Objeto Administrador con los datos actualizados
+     * @return Mensaje de error si ocurre algún problema, null si la actualización fue exitosa
+     */
     @Override
     public String administradorUpd(Administrador administrador) {
 
@@ -180,6 +226,12 @@ public class DaoAdministradorImpl implements DaoAdministrador{
 
     }
 
+    /**
+     * Elimina un administrador de la base de datos por su ID.
+     * 
+     * @param id Identificador único del administrador a eliminar
+     * @return Mensaje de error si ocurre algún problema, null si la eliminación fue exitosa
+     */
     @Override
     public String administradorDel(Integer id) {
         StringBuilder sql = new StringBuilder();
@@ -198,6 +250,11 @@ public class DaoAdministradorImpl implements DaoAdministrador{
         return mensaje;
     }
 
+    /**
+     * Obtiene el último mensaje de error generado por las operaciones del DAO.
+     * 
+     * @return Mensaje de error o null si no hay errores
+     */
     @Override
     public String getMensaje() {
         return mensaje;

@@ -26,24 +26,40 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
- *
+ * Servlet que gestiona el proceso de autenticación (login) del sistema.
+ * Permite el inicio de sesión para usuarios, veterinarios y administradores.
+ * Valida el formato del correo electrónico y verifica las credenciales en la base de datos.
+ * 
  * @author Anai Huarancca
  */
 @WebServlet(name = "loginServlet", urlPatterns = {"/login"})
 public class loginServlet extends HttpServlet {
 
+    /**
+     * Procesa las solicitudes de login (GET y POST).
+     * Valida las credenciales y redirige según el tipo de usuario autenticado.
+     * 
+     * @param request Objeto HttpServletRequest con los datos de la solicitud
+     * @param response Objeto HttpServletResponse para enviar la respuesta
+     * @throws ServletException Si ocurre un error en el servlet
+     * @throws IOException Si ocurre un error de entrada/salida
+     */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+        // Obtener parámetros del formulario de login
         String correo = request.getParameter("correo");
         String contra = request.getParameter("contra");
         String mensajeAlerta;
+        
+        // Validar que los campos no estén vacíos
         if ("".equals(correo) || "".equals(contra)) {
             mensajeAlerta = "todos los campos son obligatorios";
             request.setAttribute("mensajeAlerta", mensajeAlerta);
             request.getRequestDispatcher("/index.jsp").forward(request, response);
             return;
         } else if (validarCorreo(correo) == false) {
+            // Validar formato del correo electrónico
             System.out.println("entro validar");
             mensajeAlerta = "no es un correo valido";
             request.setAttribute("mensajeAlerta", mensajeAlerta);
@@ -51,15 +67,17 @@ public class loginServlet extends HttpServlet {
             return;
 
         }
+        
+        // Obtener listas de usuarios, veterinarios y administradores
         DaoUsuario daoUsuario = new DaoUsuarioImpl();
         List<Usuario> usuarios = daoUsuario.usuarioSel();
-         DaoVeterinario dao = new DaoVeterinarioImpl();
+        DaoVeterinario dao = new DaoVeterinarioImpl();
         List<Veterinario> veterinarios = dao.veterinarioSel();
-        // list administrador
         DaoAdministrador daoAdmin = new DaoAdministradorImpl();
         List<Administrador> administradores = daoAdmin.administradorSel();
     
 
+        // Verificar si el correo está registrado en alguna de las tablas
         boolean correoRegistrado = false;
 
         for (Usuario usuario : usuarios) {
@@ -83,26 +101,28 @@ public class loginServlet extends HttpServlet {
         }
 
 
+        // Si el correo no está registrado, mostrar error
         if (!correoRegistrado) {
-            // El correo no está registrado, realiza la redirección
             mensajeAlerta = "Usuario no encontrado";
             request.setAttribute("mensajeAlerta", mensajeAlerta);
             request.getRequestDispatcher("/index.jsp").forward(request, response);
         }
 
+        // Autenticar usuario
         for (Usuario usuario : usuarios) {
             if (usuario.getCorreoUsuario().equals(correo) && usuario.getContra().equals(contra)) {
                 System.out.println("Buscando usuario");
                 Integer codigoUsuario = usuario.getIdUsuario();
-                // Guardar el idUsuario en la sesión (opcional)
+                // Guardar el idUsuario en la sesión
                 HttpSession session = request.getSession();
                 session.setAttribute("codigoUsuario", codigoUsuario);
-                // Redirigir a la página deseada
+                // Redirigir a la página de usuario
                 response.sendRedirect(request.getContextPath() + "/indexUsuario.jsp");
                 return;
             }
         }
        
+        // Autenticar veterinario
         for (Veterinario veterinario : veterinarios) {
             if (veterinario.getCorreo().equals(correo) && veterinario.getContra().equals(contra)) {
                 System.out.println("Buscando veterinario");
@@ -114,6 +134,7 @@ public class loginServlet extends HttpServlet {
             }
         }
 
+        // Autenticar administrador
         for(Administrador administrador : administradores){
             if(administrador.getCorreo().equals(correo) && administrador.getContra().equals(contra)){
                 System.out.println("Buscando administrador");
@@ -124,13 +145,19 @@ public class loginServlet extends HttpServlet {
             }
         }
 
-        // Si no se encontró ni en usuarios ni en veterinarios
+        // Si no se encontró coincidencia, la contraseña es incorrecta
         mensajeAlerta = "Contraseña incorrecta";
         request.setAttribute("mensajeAlerta", mensajeAlerta);
         request.getRequestDispatcher("/index.jsp").forward(request, response);
 
     }
 
+    /**
+     * Valida el formato de un correo electrónico usando expresiones regulares.
+     * 
+     * @param correo Correo electrónico a validar
+     * @return true si el formato es válido, false en caso contrario
+     */
     private boolean validarCorreo(String correo) {
         // Expresión regular para validar un correo electrónico
         String regex = "^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Z|a-z]{2,6}$";
