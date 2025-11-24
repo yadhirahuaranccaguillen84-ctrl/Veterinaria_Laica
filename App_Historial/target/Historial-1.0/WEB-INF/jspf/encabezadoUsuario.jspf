@@ -13,6 +13,7 @@
             </svg>
             <h1 class="logo__nombre no-margin centrar-texto"><span class="logo__bold">Laica</span></h1>
         </a>
+        <!-- Barra de navegación principal -->
         <nav class="navegacion">
             <a href="/Historial/indexUsuario.jsp" class="navegacion__enlace">Inicio</a>
             <a id="mascotaUsuarioLink" href="#" class="navegacion__enlace">Mascotas</a>
@@ -22,6 +23,7 @@
             <a href="/Historial/nosotrosUsuario.jsp"  class="navegacion__enlace">Nosotros</a>
             <a href="/Historial/index.jsp" class="navegacion__enlace" onclick="cerrarSesion()">Cerrar Sesión</a>
         </nav>
+        <!-- Ícono de menú hamburguesa (para móviles) -->
         <div class="hamburguesa">
             <i class="bx bx-menu"></i>
         </div>
@@ -29,6 +31,7 @@
     </div>
 
 </div>
+<!-- Barra de navegación secundaria (encabezado) -->
 <nav class="navegacionEncabezado">
     <a href="/Historial/indexUsuario.jsp" class="navegacion__enlace">Inicio</a>
     <a id="mascotaUsuarioLink" href="#" class="navegacion__enlace" >Mascotas</a>
@@ -38,6 +41,7 @@
     <a href="/Historial/nosotrosUsuario.jsp"  class="navegacion__enlace">Nosotros</a>
     <a href="/Historial/index.jsp" class="navegacion__enlace" onclick="cerrarSesion()">Cerrar Sesión</a>
 </nav>
+<!-- Script para manejar el cierre de sesión -->
 
 <script>
 
