@@ -19,6 +19,7 @@ com\pe\mispatitas\historial\test\TextCrudContacto.class
 entidad\HistorialClinico.class
 com\pe\mispatitas\historial\Servlet\ActualizarServicioServlet.class
 com\pe\mispatitas\historial\Servlet\MostrarServicioNormalServlet.class
+com\pe\mispatitas\historial\Servlet\historialAdministradorServlet.class
 com\pe\mispatitas\historial\test\TestAsistencia.class
 com\pe\mispatitas\historial\Servlet\mascotaVeterinarioServlet.class
 com\pe\mispatitas\historial\dao\DaoHistorialClinico.class

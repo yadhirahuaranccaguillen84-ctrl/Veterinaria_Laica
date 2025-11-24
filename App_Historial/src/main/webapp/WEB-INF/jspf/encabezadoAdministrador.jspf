@@ -16,6 +16,7 @@
         <nav class="navegacion">
             <a href="/Historial/indexAdministrador.jsp" class="navegacion__enlace">Inicio</a>
             <a href="/Historial/createUsers.jsp" class="navegacion__enlace">Create Users</a>
+            <a href="/Historial/historialAdministrador" class="navegacion__enlace">Historiales</a>
             <a href="/Historial/asistencia.jsp" class="navegacion__enlace">Asistencia</a>
             <a href="/Historial/salarios.jsp" class="navegacion__enlace">Salarios</a>
             <a href="/Historial/index.jsp" class="navegacion__enlace" onclick="cerrarSesion()">Cerrar Sesión</a>
