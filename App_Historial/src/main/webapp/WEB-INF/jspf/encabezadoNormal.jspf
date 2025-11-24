@@ -36,5 +36,5 @@
             <a href="/Historial/" class="navegacion__enlaceEncabezado">Inicio</a>
             <a href="/Historial/nosotrosNormal.jsp" class="navegacion__enlaceEncabezado">Nosotros</a>
             <a href="/Historial/MostrarServicioNormal" class="navegacion__enlaceEncabezado">Servicios</a>
-            <a href="/Historial/index2.jsp" class="navegacion__enlaceEncabezado">Intranet</a>
+            <a href="/Historial/index2.jsp" class="navegacion__enlace">Iniciar Sesion</a>
         </nav>
