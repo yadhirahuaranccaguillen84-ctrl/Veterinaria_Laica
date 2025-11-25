@@ -16,6 +16,7 @@
         <!-- Barra de navegación principal -->
         <nav class="navegacion">
             <a href="/Historial/indexUsuario.jsp" class="navegacion__enlace">Inicio</a>
+            <a href="/Historial/dashboardUsuario.jsp" class="navegacion__enlace">Dashboard</a>
             <a id="mascotaUsuarioLink" href="#" class="navegacion__enlace">Mascotas</a>
             <a href="#" id="historialUsuarioLink" class="navegacion__enlace">Historial</a>
             <a href="#" id="contactoUsuarioLink" class="navegacion__enlace">Contacto</a>
@@ -34,6 +35,7 @@
 <!-- Barra de navegación secundaria (encabezado) -->
 <nav class="navegacionEncabezado">
     <a href="/Historial/indexUsuario.jsp" class="navegacion__enlace">Inicio</a>
+    <a href="/Historial/dashboardUsuario.jsp" class="navegacion__enlace">Dashboard</a>
     <a id="mascotaUsuarioLink" href="#" class="navegacion__enlace" >Mascotas</a>
     <a href="#" id="historialUsuarioLink" class="navegacion__enlace">Historial</a>
     <a href="#" id="contactoUsuarioLink" class="navegacion__enlace">Contacto</a>

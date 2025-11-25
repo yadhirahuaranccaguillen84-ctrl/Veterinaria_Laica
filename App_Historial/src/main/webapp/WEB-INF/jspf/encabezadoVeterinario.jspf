@@ -15,6 +15,7 @@
         </a>
         <nav class="navegacion">
             <a href="/Historial/indexVeterinario.jsp" class="navegacion__enlace">Inicio</a>
+            <a href="/Historial/dashboard.jsp" class="navegacion__enlace">Dashboard</a>
             <a href="/Historial/MarcarAsistencia.jsp" class="navegacion__enlace">Asistencia</a>
             <a href="/Historial/mascotaVeterinario" class="navegacion__enlace">Mascotas</a>
             <a href="/Historial/ReporteHistorial" class="navegacion__enlace">Reporte</a>
@@ -34,6 +35,7 @@
 </div>
 <nav class="navegacionEncabezado">
     <a href="/Historial/indexVeterinario.jsp" class="navegacion__enlace">Inicio</a>
+    <a href="/Historial/dashboard.jsp" class="navegacion__enlace">Dashboard</a>
     <a href="/Historial/MarcarAsistencia.jsp" class="navegacion__enlace">Asistencia</a>
     <a href="/Historial/mascotaVeterinario" class="navegacion__enlace">Mascotas</a>
     <a href="/Historial/ReporteHistorial" class="navegacion__enlace">Reporte</a>
